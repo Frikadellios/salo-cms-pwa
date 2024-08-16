@@ -1,509 +1,498 @@
-import { t } from "@/utils/translate";
+import { t } from '@/utils/translate'
 
 export const style = {
-	name: "style",
-	label: t("page_style"),
-	widget: "object",
-	summary: "{{fields.template}} ",
+	name: 'style',
+	label: t('page_style'),
+	widget: 'object',
+	summary: '{{fields.template}} ',
 	collapsed: true,
 	fields: [
 		{
-			name: "template",
-			label: t("template"),
-			widget: "select",
-			options: ["full", "split"],
-			default: "split",
+			name: 'template',
+			label: t('template'),
+			widget: 'select',
+			options: ['full', 'split'],
+			default: 'split'
 		},
 		{
-			name: "card_template",
-			label: t("card_template"),
-			widget: "select",
-			options: ["grid", "flex"],
-			default: "grid",
+			name: 'card_template',
+			label: t('card_template'),
+			widget: 'select',
+			options: ['grid', 'flex'],
+			default: 'grid',
 			condition: {
-				field: "style.template",
-				value: "full",
-			},
+				field: 'style.template',
+				value: 'full'
+			}
 		},
 		{
-			name: "hero_template",
-			label: t("hero_template"),
-			widget: "select",
-			options: ["plain", "image"],
-			default: "image",
+			name: 'hero_template',
+			label: t('hero_template'),
+			widget: 'select',
+			options: ['plain', 'image'],
+			default: 'image',
 			condition: {
-				field: "style.template",
-				value: "full",
-			},
+				field: 'style.template',
+				value: 'full'
+			}
 		},
 
 		{
-			name: "hero_surface",
-			label: t("hero_surface"),
+			name: 'hero_surface',
+			label: t('hero_surface'),
 			multiple: false,
-			widget: "relation",
-			collection: "config",
-			file: "style",
-			search_fields: ["surface.*.name"],
-			display_fields: ["surface.*.name"],
-			value_field: "surface.*.class",
+			widget: 'relation',
+			collection: 'config',
+			file: 'style',
+			search_fields: ['surface.*.name'],
+			display_fields: ['surface.*.name'],
+			value_field: 'surface.*.class',
 			options_length: 50,
-			required: false,
+			required: false
 		},
 		{
-			name: "hero_image_opacity",
-			label: t("hero_image_opacity"),
-			widget: "select",
-			options: [
-				"0.1",
-				"0.2",
-				"0.3",
-				"0.4",
-				"0.5",
-				"0.6",
-				"0.7",
-				"0.8",
-				"0.9",
-				"1",
-			],
-			default: "80",
-			required: false,
+			name: 'hero_image_opacity',
+			label: t('hero_image_opacity'),
+			widget: 'select',
+			options: ['0.1', '0.2', '0.3', '0.4', '0.5', '0.6', '0.7', '0.8', '0.9', '1'],
+			default: '80',
+			required: false
 		},
 
 		{
-			name: "container",
-			label: t("container_size"),
-			widget: "select",
-			options: ["sm", "md", "lg", "xl", "full", "none"],
-			default: "md",
+			name: 'container',
+			label: t('container_size'),
+			widget: 'select',
+			options: ['sm', 'md', 'lg', 'xl', 'full', 'none'],
+			default: 'md',
 			condition: {
-				field: "style.template",
-				value: "full",
-			},
+				field: 'style.template',
+				value: 'full'
+			}
 		},
 		{
-			label: t("page_class"),
-			name: "page_class",
-			widget: "string",
-			required: false,
-		},
-
-		{
-			label: t("content_class"),
-			name: "content_class",
-			widget: "string",
-			required: false,
+			label: t('page_class'),
+			name: 'page_class',
+			widget: 'string',
+			required: false
 		},
 
 		{
-			label: t("block_class"),
-			name: "block_class",
-			widget: "string",
-			required: false,
+			label: t('content_class'),
+			name: 'content_class',
+			widget: 'string',
+			required: false
+		},
+
+		{
+			label: t('block_class'),
+			name: 'block_class',
+			widget: 'string',
+			required: false
 		},
 		{
-			label: t("hero_class"),
-			name: "hero_class",
-			widget: "string",
+			label: t('hero_class'),
+			name: 'hero_class',
+			widget: 'string',
 			required: false,
 			condition: {
-				field: "style.template",
-				value: "full",
-			},
-		},
-	],
-};
+				field: 'style.template',
+				value: 'full'
+			}
+		}
+	]
+}
 
 export const toolbarButtons = {
 	main: [
-		"bold",
-		"italic",
-		"strikethrough",
-		"code",
-		"font",
-		"blockquote",
-		"unordered-list",
-		"ordered-list",
-		"decrease-indent",
-		"increase-indent",
+		'bold',
+		'italic',
+		'strikethrough',
+		'code',
+		'font',
+		'blockquote',
+		'unordered-list',
+		'ordered-list',
+		'decrease-indent',
+		'increase-indent',
 		{
-			label: t("insert"),
+			label: t('insert'),
 			groups: [
 				{
-					items: ["blockquote", "code-block"],
+					items: ['blockquote', 'code-block']
 				},
 				{
-					items: ["image", "file-link"],
-				},
-			],
-		},
-	],
-};
+					items: ['image', 'file-link']
+				}
+			]
+		}
+	]
+}
 
 export const toolbarButtonsInline = {
 	main: [
-		"bold",
-		"italic",
-		"strikethrough",
-		"code",
-		"font",
-		"unordered-list",
-		"ordered-list",
-		"decrease-indent",
-		"increase-indent",
+		'bold',
+		'italic',
+		'strikethrough',
+		'code',
+		'font',
+		'unordered-list',
+		'ordered-list',
+		'decrease-indent',
+		'increase-indent',
 		{
-			label: t("insert"),
+			label: t('insert'),
 			groups: [
 				{
-					items: ["blockquote", "code-block"],
-				},
-			],
-		},
-	],
-};
+					items: ['blockquote', 'code-block']
+				}
+			]
+		}
+	]
+}
 
 export const buttons = {
-	name: "buttons",
-	label: t("buttons"),
-	label_singular: t("button"),
-	widget: "list",
+	name: 'buttons',
+	label: t('buttons'),
+	label_singular: t('button'),
+	widget: 'list',
 	min: 0,
 	max: 5,
 	collapsed: true,
-	summary: "{{fields.label}} | {{fields.href}}",
+	summary: '{{fields.label}} | {{fields.href}}',
 	required: false,
 	fields: [
 		{
-			label: t("label"),
-			name: "label",
-			widget: "string",
+			label: t('label'),
+			name: 'label',
+			widget: 'string'
 		},
 		{
-			label: t("href"),
-			name: "href",
-			widget: "string",
+			label: t('href'),
+			name: 'href',
+			widget: 'string'
 		},
 		{
-			name: "color",
-			label: t("surface"),
+			name: 'color',
+			label: t('surface'),
 			multiple: false,
-			widget: "relation",
-			collection: "config",
-			file: "style",
-			search_fields: ["surface.*.name"],
-			display_fields: ["surface.*.name"],
-			value_field: "surface.*.class",
+			widget: 'relation',
+			collection: 'config',
+			file: 'style',
+			search_fields: ['surface.*.name'],
+			display_fields: ['surface.*.name'],
+			value_field: 'surface.*.class',
 			options_length: 50,
-			required: false,
+			required: false
 		},
 		{
-			name: "icon",
-			label: t("icon"),
-			widget: "relation",
-			collection: "config",
+			name: 'icon',
+			label: t('icon'),
+			widget: 'relation',
+			collection: 'config',
 			required: false,
-			file: "style",
-			search_fields: ["icons.*.name"],
-			display_fields: ["icons.*.name"],
+			file: 'style',
+			search_fields: ['icons.*.name'],
+			display_fields: ['icons.*.name'],
 			options_length: 50,
-			value_field: "icons.*.icon",
+			value_field: 'icons.*.icon'
 		},
 
 		{
-			name: "icon_only",
-			label: t("icon_only"),
-			widget: "boolean",
-			required: false,
+			name: 'icon_only',
+			label: t('icon_only'),
+			widget: 'boolean',
+			required: false
 		},
 
 		{
-			label: t("class"),
-			name: "class_name",
-			widget: "string",
-			required: false,
-		},
-	],
-};
+			label: t('class'),
+			name: 'class_name',
+			widget: 'string',
+			required: false
+		}
+	]
+}
 
 export const blocks = {
-	name: "blocks",
-	label: t("blocks"),
-	label_singular: t("block"),
+	name: 'blocks',
+	label: t('blocks'),
+	label_singular: t('block'),
 	required: false,
-	widget: "list",
+	widget: 'list',
 
 	collapsed: true,
 	types: [
 		{
-			name: "gallery",
-			label: t("gallery"),
-			widget: "object",
+			name: 'gallery',
+			label: t('gallery'),
+			widget: 'object',
 			collapsed: true,
-			summary: "{{fields.title}}",
+			summary: '{{fields.title}}',
 			fields: [
 				{
-					label: "Component",
-					name: "component",
-					widget: "hidden",
-					default: "ImageGallery",
+					label: 'Component',
+					name: 'component',
+					widget: 'hidden',
+					default: 'ImageGallery'
 				},
 				{
-					name: "title",
-					label: t("title"),
-					widget: "string",
-					default: t("image-gallery"),
+					name: 'title',
+					label: t('title'),
+					widget: 'string',
+					default: t('image-gallery')
 				},
 
 				{
-					name: "container",
-					label: t("container_size"),
-					widget: "select",
-					options: ["sm", "md", "lg", "xl", "full"],
-					default: "md",
+					name: 'container',
+					label: t('container_size'),
+					widget: 'select',
+					options: ['sm', 'md', 'lg', 'xl', 'full'],
+					default: 'md'
 				},
 				{
-					name: "aspect",
-					label: t("aspect_ratio"),
-					widget: "select",
+					name: 'aspect',
+					label: t('aspect_ratio'),
+					widget: 'select',
 					options: [1.777, 1.25, 1, 0.8, 0.5625],
-					required: false,
+					required: false
 				},
 
 				{
-					name: "images",
-					label: t("images"),
-					widget: "list",
+					name: 'images',
+					label: t('images'),
+					widget: 'list',
 
 					collapsed: true,
 					fields: [
 						{
-							name: "image",
-							label: t("image"),
-							widget: "image",
+							name: 'image',
+							label: t('image'),
+							widget: 'image'
 						},
 						{
-							name: "title",
-							label: t("title"),
-							widget: "string",
-							require: false,
-						},
-					],
+							name: 'title',
+							label: t('title'),
+							widget: 'string',
+							require: false
+						}
+					]
 				},
 				{
-					name: "surface",
-					label: t("surface"),
+					name: 'surface',
+					label: t('surface'),
 					multiple: false,
-					widget: "relation",
-					collection: "config",
-					file: "style",
-					search_fields: ["surface.*.name"],
-					display_fields: ["surface.*.name"],
-					value_field: "surface.*.class",
+					widget: 'relation',
+					collection: 'config',
+					file: 'style',
+					search_fields: ['surface.*.name'],
+					display_fields: ['surface.*.name'],
+					value_field: 'surface.*.class',
 					options_length: 50,
-					required: false,
+					required: false
 				},
 				{
-					label: t("block_class"),
-					name: "block_class",
-					widget: "string",
-					required: false,
+					label: t('block_class'),
+					name: 'block_class',
+					widget: 'string',
+					required: false
 				},
 				{
-					name: "animate",
-					label: t("animate_transition"),
-					widget: "boolean",
+					name: 'animate',
+					label: t('animate_transition'),
+					widget: 'boolean',
 					required: false,
-					default: false,
-				},
-			],
+					default: false
+				}
+			]
 		},
 		{
-			name: "text_image",
-			label: t("text_image"),
-			widget: "object",
-			summary: "{{fields.content}} - {{fields.template}}",
+			name: 'text_image',
+			label: t('text_image'),
+			widget: 'object',
+			summary: '{{fields.content}} - {{fields.template}}',
 			collapsed: true,
 			fields: [
 				{
-					label: "Component",
-					name: "component",
-					widget: "hidden",
-					default: "TextImage",
+					label: 'Component',
+					name: 'component',
+					widget: 'hidden',
+					default: 'TextImage'
 				},
 				{
-					name: "container",
-					label: t("container_size"),
-					widget: "select",
-					options: ["sm", "md", "lg", "xl", "full", "none"],
-					default: "md",
-				},
-
-				{
-					name: "template",
-					label: t("template"),
-					widget: "select",
-					options: ["column", "row", "banner"],
-					default: "column",
+					name: 'container',
+					label: t('container_size'),
+					widget: 'select',
+					options: ['sm', 'md', 'lg', 'xl', 'full', 'none'],
+					default: 'md'
 				},
 
 				{
-					name: "reverse",
-					label: t("reverse"),
-					widget: "boolean",
+					name: 'template',
+					label: t('template'),
+					widget: 'select',
+					options: ['column', 'row', 'banner'],
+					default: 'column'
+				},
+
+				{
+					name: 'reverse',
+					label: t('reverse'),
+					widget: 'boolean',
 					default: false,
-					hint: t("not_used_by_banner_template"),
+					hint: t('not_used_by_banner_template')
 				},
 
 				{
-					label: t("content"),
-					name: "content",
-					widget: "markdown",
-					comment: "This is a multiline\\ncomment",
+					label: t('content'),
+					name: 'content',
+					widget: 'markdown',
+					comment: 'This is a multiline\\ncomment',
 					toolbar_buttons: toolbarButtonsInline,
-					show_raw: true,
+					show_raw: true
 				},
 				buttons,
 
 				{
-					name: "surface",
-					label: t("surface"),
+					name: 'surface',
+					label: t('surface'),
 					multiple: false,
-					widget: "relation",
-					collection: "config",
-					file: "style",
-					search_fields: ["surface.*.name"],
-					display_fields: ["surface.*.name"],
-					value_field: "surface.*.class",
+					widget: 'relation',
+					collection: 'config',
+					file: 'style',
+					search_fields: ['surface.*.name'],
+					display_fields: ['surface.*.name'],
+					value_field: 'surface.*.class',
 					options_length: 50,
-					required: false,
+					required: false
 				},
 				{
-					label: t("block_class"),
-					name: "block_class",
-					widget: "string",
-					required: false,
+					label: t('block_class'),
+					name: 'block_class',
+					widget: 'string',
+					required: false
 				},
 				{
-					name: "aspect",
-					label: t("aspect_ratio"),
-					widget: "select",
+					name: 'aspect',
+					label: t('aspect_ratio'),
+					widget: 'select',
 					options: [1.777, 1.25, 1, 0.8, 0.5625],
 					required: false,
-					hint: t("not_used_by_banner_template"),
+					hint: t('not_used_by_banner_template')
 				},
 
 				{
-					label: t("alt_text"),
-					name: "title",
-					widget: "string",
-					default: "My Image",
+					label: t('alt_text'),
+					name: 'title',
+					widget: 'string',
+					default: 'My Image'
 				},
 				{
-					name: "image_size",
-					hint: t("only_for_column_template"),
-					label: t("image_size"),
-					widget: "select",
-					options: ["25", "33", "50", "66", "75"],
-					default: "50",
+					name: 'image_size',
+					hint: t('only_for_column_template'),
+					label: t('image_size'),
+					widget: 'select',
+					options: ['25', '33', '50', '66', '75'],
+					default: '50',
+					required: false
+				},
+				{
+					name: 'thumbnail',
+					label: t('image'),
+					widget: 'image'
+				},
+				{
+					name: 'animate',
+					label: t('animate_transition'),
+					widget: 'boolean',
 					required: false,
-				},
-				{
-					name: "thumbnail",
-					label: t("image"),
-					widget: "image",
-				},
-				{
-					name: "animate",
-					label: t("animate_transition"),
-					widget: "boolean",
-					required: false,
-					default: false,
-				},
-			],
+					default: false
+				}
+			]
 		},
 
 		{
-			name: "rich_text",
-			label: t("richtext"),
-			widget: "object",
-			summary: "{{fields.content}}",
+			name: 'rich_text',
+			label: t('richtext'),
+			widget: 'object',
+			summary: '{{fields.content}}',
 			collapsed: true,
 			fields: [
 				{
-					label: "Component",
-					name: "component",
-					widget: "hidden",
-					default: "RichText",
+					label: 'Component',
+					name: 'component',
+					widget: 'hidden',
+					default: 'RichText'
 				},
 				{
-					name: "container",
-					label: t("container_size"),
-					widget: "select",
-					options: ["sm", "md", "lg", "xl", "full"],
-					default: "md",
+					name: 'container',
+					label: t('container_size'),
+					widget: 'select',
+					options: ['sm', 'md', 'lg', 'xl', 'full'],
+					default: 'md'
 				},
 
 				{
-					label: t("content"),
-					name: "content",
-					widget: "markdown",
-					comment: "This is a multiline\\ncomment",
+					label: t('content'),
+					name: 'content',
+					widget: 'markdown',
+					comment: 'This is a multiline\\ncomment',
 					toolbar_buttons: toolbarButtonsInline,
-					show_raw: true,
+					show_raw: true
 				},
 				buttons,
 
 				{
-					name: "surface",
-					label: t("surface"),
+					name: 'surface',
+					label: t('surface'),
 					multiple: false,
-					widget: "relation",
-					collection: "config",
-					file: "style",
-					search_fields: ["surface.*.name"],
-					display_fields: ["surface.*.name"],
-					value_field: "surface.*.class",
+					widget: 'relation',
+					collection: 'config',
+					file: 'style',
+					search_fields: ['surface.*.name'],
+					display_fields: ['surface.*.name'],
+					value_field: 'surface.*.class',
 					options_length: 50,
-					required: false,
+					required: false
 				},
 
 				{
-					label: t("block_class"),
-					name: "block_class",
-					widget: "string",
-					required: false,
-				},
-			],
+					label: t('block_class'),
+					name: 'block_class',
+					widget: 'string',
+					required: false
+				}
+			]
 		},
 		{
-			name: "features",
-			label: t("features"),
-			widget: "object",
-			summary: "{{fields.content}}",
+			name: 'features',
+			label: t('features'),
+			widget: 'object',
+			summary: '{{fields.content}}',
 			collapsed: true,
 			fields: [
 				{
-					label: "Component",
-					name: "component",
-					widget: "hidden",
-					default: "Features",
+					label: 'Component',
+					name: 'component',
+					widget: 'hidden',
+					default: 'Features'
 				},
 				{
-					name: "container",
-					label: t("container_size"),
-					widget: "select",
-					options: ["sm", "md", "lg", "xl", "full"],
-					default: "md",
+					name: 'container',
+					label: t('container_size'),
+					widget: 'select',
+					options: ['sm', 'md', 'lg', 'xl', 'full'],
+					default: 'md'
 				},
 
 				{
-					label: t("content"),
-					name: "content",
-					widget: "markdown",
-					comment: "This is a multiline\\ncomment",
+					label: t('content'),
+					name: 'content',
+					widget: 'markdown',
+					comment: 'This is a multiline\\ncomment',
 					toolbar_buttons: toolbarButtonsInline,
 					required: false,
-					show_raw: true,
+					show_raw: true
 				},
 				/*   {
           name: "centered",
@@ -513,14 +502,14 @@ export const blocks = {
           default: true,
         }, */
 				{
-					name: "features",
-					label: t("features"),
-					label_singular: t("feature"),
-					widget: "list",
+					name: 'features',
+					label: t('features'),
+					label_singular: t('feature'),
+					widget: 'list',
 					min: 0,
 					max: 5,
 					collapsed: true,
-					summary: "{{fields.content}} | {{fields.href}}",
+					summary: '{{fields.content}} | {{fields.href}}',
 					fields: [
 						/* {
 							label: t('href'),
@@ -529,513 +518,513 @@ export const blocks = {
 							required: false
 						}, */
 						{
-							label: t("color"),
-							name: "color",
+							label: t('color'),
+							name: 'color',
 							multiple: false,
-							widget: "relation",
-							collection: "config",
-							file: "style",
-							search_fields: ["surface.*.name"],
-							display_fields: ["surface.*.name"],
-							value_field: "surface.*.class",
+							widget: 'relation',
+							collection: 'config',
+							file: 'style',
+							search_fields: ['surface.*.name'],
+							display_fields: ['surface.*.name'],
+							value_field: 'surface.*.class',
 							options_length: 50,
-							required: false,
+							required: false
 						},
 						{
-							name: "icon",
-							label: t("icon"),
-							widget: "relation",
-							collection: "config",
+							name: 'icon',
+							label: t('icon'),
+							widget: 'relation',
+							collection: 'config',
 							required: false,
-							file: "style",
-							search_fields: ["icons.*.name"],
-							display_fields: ["icons.*.name"],
+							file: 'style',
+							search_fields: ['icons.*.name'],
+							display_fields: ['icons.*.name'],
 							options_length: 50,
-							value_field: "icons.*.icon",
+							value_field: 'icons.*.icon'
 						},
 						{
-							label: t("content"),
-							name: "content",
-							widget: "markdown",
-							comment: "This is a multiline\\ncomment",
+							label: t('content'),
+							name: 'content',
+							widget: 'markdown',
+							comment: 'This is a multiline\\ncomment',
 							toolbar_buttons: toolbarButtonsInline,
 							required: false,
-							show_raw: true,
-						},
-					],
+							show_raw: true
+						}
+					]
 				},
 				{
-					name: "surface",
-					label: t("surface"),
+					name: 'surface',
+					label: t('surface'),
 					multiple: false,
-					widget: "relation",
-					collection: "config",
-					file: "style",
-					search_fields: ["surface.*.name"],
-					display_fields: ["surface.*.name"],
-					value_field: "surface.*.class",
+					widget: 'relation',
+					collection: 'config',
+					file: 'style',
+					search_fields: ['surface.*.name'],
+					display_fields: ['surface.*.name'],
+					value_field: 'surface.*.class',
 					options_length: 50,
-					required: false,
+					required: false
 				},
 				{
-					label: t("block_class"),
-					name: "block_class",
-					widget: "string",
-					required: false,
-				},
-			],
+					label: t('block_class'),
+					name: 'block_class',
+					widget: 'string',
+					required: false
+				}
+			]
 		},
 		{
-			name: "recentitems",
-			label: t("recent_items"),
-			widget: "object",
-			summary: "{{fields.title}}",
+			name: 'recentitems',
+			label: t('recent_items'),
+			widget: 'object',
+			summary: '{{fields.title}}',
 			fields: [
 				{
-					label: "Component",
-					name: "component",
-					widget: "hidden",
-					default: "RecentItems",
+					label: 'Component',
+					name: 'component',
+					widget: 'hidden',
+					default: 'RecentItems'
 				},
 				{
-					label: t("page_type"),
-					name: "page_type",
-					widget: "select",
-					options: ["blog", "project", "menu"],
-					default: "post",
+					label: t('page_type'),
+					name: 'page_type',
+					widget: 'select',
+					options: ['blog', 'project', 'menu'],
+					default: 'post'
 				},
 				{
-					label: t("post_tag_filter"),
-					name: "post_tag",
-					widget: "relation",
+					label: t('post_tag_filter'),
+					name: 'post_tag',
+					widget: 'relation',
 					min: 0,
 					max: 5,
 					multiple: true,
-					collection: "config",
+					collection: 'config',
 					required: false,
-					file: "blog",
-					search_fields: ["blog_tags.*.name"],
-					display_fields: ["blog_tags.*.name"],
-					value_field: "blog_tags.*.name",
+					file: 'blog',
+					search_fields: ['blog_tags.*.name'],
+					display_fields: ['blog_tags.*.name'],
+					value_field: 'blog_tags.*.name'
 				},
 				{
-					label: t("project_tag_filter"),
-					name: "portfolio_tag",
-					widget: "relation",
+					label: t('project_tag_filter'),
+					name: 'portfolio_tag',
+					widget: 'relation',
 					min: 0,
 					max: 5,
 					multiple: true,
-					collection: "config",
+					collection: 'config',
 					required: false,
-					file: "project",
-					search_fields: ["project_tags.*.name"],
-					display_fields: ["project_tags.*.name"],
-					value_field: "project_tags.*.name",
+					file: 'project',
+					search_fields: ['project_tags.*.name'],
+					display_fields: ['project_tags.*.name'],
+					value_field: 'project_tags.*.name'
 				},
 				{
-					label: t("number_of_items"),
-					name: "count",
-					widget: "number",
+					label: t('number_of_items'),
+					name: 'count',
+					widget: 'number',
 					required: true,
-					value_type: "int",
+					value_type: 'int',
 					default: 5,
 					min: 1,
-					max: 25,
+					max: 25
 				},
 				{
-					label: t("title"),
-					name: "title",
-					widget: "string",
-					required: false,
+					label: t('title'),
+					name: 'title',
+					widget: 'string',
+					required: false
 				},
 				{
-					label: t("content"),
-					name: "content",
-					widget: "markdown",
-					comment: "This is a multiline\\ncomment",
+					label: t('content'),
+					name: 'content',
+					widget: 'markdown',
+					comment: 'This is a multiline\\ncomment',
 					toolbar_buttons: toolbarButtonsInline,
 					required: false,
-					show_raw: true,
+					show_raw: true
 				},
 				{
-					label: t("container_size"),
-					name: "container",
-					widget: "select",
-					options: ["sm", "md", "lg", "xl", "full"],
-					default: "md",
+					label: t('container_size'),
+					name: 'container',
+					widget: 'select',
+					options: ['sm', 'md', 'lg', 'xl', 'full'],
+					default: 'md'
 				},
 				{
-					label: t("template"),
-					name: "template",
-					widget: "select",
-					options: ["grid", "list"],
-					default: "column",
+					label: t('template'),
+					name: 'template',
+					widget: 'select',
+					options: ['grid', 'list'],
+					default: 'column'
 				},
 
 				{
-					label: t("block_class"),
-					name: "block_class",
-					widget: "string",
-					required: false,
+					label: t('block_class'),
+					name: 'block_class',
+					widget: 'string',
+					required: false
 				},
 				{
-					name: "surface",
-					label: t("surface"),
+					name: 'surface',
+					label: t('surface'),
 					multiple: false,
-					widget: "relation",
-					collection: "config",
-					file: "style",
-					search_fields: ["surface.*.name"],
-					display_fields: ["surface.*.name"],
-					value_field: "surface.*.class",
+					widget: 'relation',
+					collection: 'config',
+					file: 'style',
+					search_fields: ['surface.*.name'],
+					display_fields: ['surface.*.name'],
+					value_field: 'surface.*.class',
 					options_length: 50,
-					required: false,
+					required: false
 				},
 				{
-					name: "animate",
-					label: t("animate_transition"),
-					widget: "boolean",
+					name: 'animate',
+					label: t('animate_transition'),
+					widget: 'boolean',
 					required: false,
-					default: false,
-				},
-			],
+					default: false
+				}
+			]
 		},
 
 		{
-			name: "shop_categories",
-			label: t("shop_categories"),
-			widget: "object",
-			summary: "{{fields.title}}",
+			name: 'shop_categories',
+			label: t('shop_categories'),
+			widget: 'object',
+			summary: '{{fields.title}}',
 			fields: [
 				{
-					label: "Component",
-					name: "component",
-					widget: "hidden",
-					default: "ShopCategories",
+					label: 'Component',
+					name: 'component',
+					widget: 'hidden',
+					default: 'ShopCategories'
 				},
 				{
-					label: t("categories"),
-					name: "categories",
-					widget: "relation",
+					label: t('categories'),
+					name: 'categories',
+					widget: 'relation',
 					min: 0,
 					max: 1000,
 					multiple: true,
-					collection: "config",
+					collection: 'config',
 					required: false,
-					file: "shop",
-					search_fields: ["product_categories.*.name"],
-					display_fields: ["product_categories.*.name"],
-					value_field: "product_categories.*.name",
+					file: 'shop',
+					search_fields: ['product_categories.*.name'],
+					display_fields: ['product_categories.*.name'],
+					value_field: 'product_categories.*.name'
 				},
 
 				{
-					label: t("title"),
-					name: "title",
-					widget: "string",
-					required: false,
+					label: t('title'),
+					name: 'title',
+					widget: 'string',
+					required: false
 				},
 				{
-					label: t("content"),
-					name: "content",
-					widget: "markdown",
-					comment: "This is a multiline\\ncomment",
+					label: t('content'),
+					name: 'content',
+					widget: 'markdown',
+					comment: 'This is a multiline\\ncomment',
 					toolbar_buttons: toolbarButtonsInline,
 					required: false,
-					show_raw: true,
+					show_raw: true
 				},
 				{
-					label: t("container_size"),
-					name: "container",
-					widget: "select",
-					options: ["sm", "md", "lg", "xl", "full"],
-					default: "md",
+					label: t('container_size'),
+					name: 'container',
+					widget: 'select',
+					options: ['sm', 'md', 'lg', 'xl', 'full'],
+					default: 'md'
 				},
 				{
-					label: t("template"),
-					name: "template",
-					widget: "select",
-					options: ["grid", "list", "flex"],
-					default: "column",
+					label: t('template'),
+					name: 'template',
+					widget: 'select',
+					options: ['grid', 'list', 'flex'],
+					default: 'column'
 				},
 
 				{
-					label: t("block_class"),
-					name: "block_class",
-					widget: "string",
-					required: false,
+					label: t('block_class'),
+					name: 'block_class',
+					widget: 'string',
+					required: false
 				},
 				{
-					name: "surface",
-					label: t("surface"),
+					name: 'surface',
+					label: t('surface'),
 					multiple: false,
-					widget: "relation",
-					collection: "config",
-					file: "style",
-					search_fields: ["surface.*.name"],
-					display_fields: ["surface.*.name"],
-					value_field: "surface.*.class",
+					widget: 'relation',
+					collection: 'config',
+					file: 'style',
+					search_fields: ['surface.*.name'],
+					display_fields: ['surface.*.name'],
+					value_field: 'surface.*.class',
 					options_length: 50,
-					required: false,
+					required: false
 				},
 				{
-					name: "animate",
-					label: t("animate_transition"),
-					widget: "boolean",
+					name: 'animate',
+					label: t('animate_transition'),
+					widget: 'boolean',
 					required: false,
-					default: false,
-				},
-			],
+					default: false
+				}
+			]
 		},
 		{
-			name: "shop_products",
-			label: t("shop_products"),
-			widget: "object",
-			summary: "{{fields.title}}",
+			name: 'shop_products',
+			label: t('shop_products'),
+			widget: 'object',
+			summary: '{{fields.title}}',
 			fields: [
 				{
-					label: "Component",
-					name: "component",
-					widget: "hidden",
-					default: "ShopProducts",
+					label: 'Component',
+					name: 'component',
+					widget: 'hidden',
+					default: 'ShopProducts'
 				},
 				{
-					label: t("categories"),
-					name: "categories",
-					widget: "relation",
+					label: t('categories'),
+					name: 'categories',
+					widget: 'relation',
 					min: 0,
 					max: 1000,
 					multiple: true,
-					collection: "config",
+					collection: 'config',
 					required: false,
-					file: "shop",
-					search_fields: ["product_categories.*.name"],
-					display_fields: ["product_categories.*.name"],
-					value_field: "product_categories.*.name",
+					file: 'shop',
+					search_fields: ['product_categories.*.name'],
+					display_fields: ['product_categories.*.name'],
+					value_field: 'product_categories.*.name'
 				},
 				{
-					label: t("products"),
-					name: "products",
-					widget: "relation",
+					label: t('products'),
+					name: 'products',
+					widget: 'relation',
 					min: 0,
 					max: 1000,
 					multiple: true,
-					collection: "product",
+					collection: 'product',
 					required: false,
-					search_fields: ["title"],
-					display_fields: ["title"],
-					value_field: "id",
+					search_fields: ['title'],
+					display_fields: ['title'],
+					value_field: 'id'
 				},
 				{
-					label: t("number_of_items"),
-					name: "count",
-					widget: "number",
+					label: t('number_of_items'),
+					name: 'count',
+					widget: 'number',
 					required: true,
-					value_type: "int",
+					value_type: 'int',
 					default: 10,
 					min: 1,
-					max: 99,
+					max: 99
 				},
 
 				{
-					label: t("title"),
-					name: "title",
-					widget: "string",
-					required: false,
+					label: t('title'),
+					name: 'title',
+					widget: 'string',
+					required: false
 				},
 				{
-					label: t("content"),
-					name: "content",
-					widget: "markdown",
-					comment: "This is a multiline\\ncomment",
+					label: t('content'),
+					name: 'content',
+					widget: 'markdown',
+					comment: 'This is a multiline\\ncomment',
 					toolbar_buttons: toolbarButtonsInline,
 					required: false,
-					show_raw: true,
+					show_raw: true
 				},
 				{
-					label: t("container_size"),
-					name: "container",
-					widget: "select",
-					options: ["sm", "md", "lg", "xl", "full"],
-					default: "md",
+					label: t('container_size'),
+					name: 'container',
+					widget: 'select',
+					options: ['sm', 'md', 'lg', 'xl', 'full'],
+					default: 'md'
 				},
 				{
-					label: t("template"),
-					name: "template",
-					widget: "select",
-					options: ["grid", "list", "flex"],
-					default: "column",
+					label: t('template'),
+					name: 'template',
+					widget: 'select',
+					options: ['grid', 'list', 'flex'],
+					default: 'column'
 				},
 
 				{
-					label: t("block_class"),
-					name: "block_class",
-					widget: "string",
-					required: false,
+					label: t('block_class'),
+					name: 'block_class',
+					widget: 'string',
+					required: false
 				},
 				{
-					name: "surface",
-					label: t("surface"),
+					name: 'surface',
+					label: t('surface'),
 					multiple: false,
-					widget: "relation",
-					collection: "config",
-					file: "style",
-					search_fields: ["surface.*.name"],
-					display_fields: ["surface.*.name"],
-					value_field: "surface.*.class",
+					widget: 'relation',
+					collection: 'config',
+					file: 'style',
+					search_fields: ['surface.*.name'],
+					display_fields: ['surface.*.name'],
+					value_field: 'surface.*.class',
 					options_length: 50,
-					required: false,
+					required: false
 				},
 				{
-					name: "animate",
-					label: t("animate_transition"),
-					widget: "boolean",
+					name: 'animate',
+					label: t('animate_transition'),
+					widget: 'boolean',
 					required: false,
-					default: false,
-				},
-			],
+					default: false
+				}
+			]
 		},
 		{
-			name: "pricing",
-			label: t("pricing_table"),
-			widget: "object",
+			name: 'pricing',
+			label: t('pricing_table'),
+			widget: 'object',
 			collapsed: true,
-			summary: "{{title}}",
+			summary: '{{title}}',
 			fields: [
 				{
-					label: "Component",
-					name: "component",
-					widget: "hidden",
-					default: "PricingTable",
+					label: 'Component',
+					name: 'component',
+					widget: 'hidden',
+					default: 'PricingTable'
 				},
 				{
-					name: "title",
-					label: t("title"),
-					widget: "string",
-					default: t("image-gallery"),
+					name: 'title',
+					label: t('title'),
+					widget: 'string',
+					default: t('image-gallery')
 				},
 
 				{
-					label: t("style"),
-					name: "style",
-					widget: "object",
+					label: t('style'),
+					name: 'style',
+					widget: 'object',
 					collapsed: true,
 					fields: [
 						{
-							name: "container",
-							label: t("container_size"),
-							widget: "select",
-							options: ["sm", "md", "lg", "xl", "full", "none"],
-							default: "md",
+							name: 'container',
+							label: t('container_size'),
+							widget: 'select',
+							options: ['sm', 'md', 'lg', 'xl', 'full', 'none'],
+							default: 'md'
 						},
 
 						{
-							name: "surface",
-							label: t("surface"),
+							name: 'surface',
+							label: t('surface'),
 							multiple: false,
-							widget: "relation",
-							collection: "config",
-							file: "style",
-							search_fields: ["surface.*.name"],
-							display_fields: ["surface.*.name"],
-							value_field: "surface.*.class",
+							widget: 'relation',
+							collection: 'config',
+							file: 'style',
+							search_fields: ['surface.*.name'],
+							display_fields: ['surface.*.name'],
+							value_field: 'surface.*.class',
 							options_length: 50,
-							required: false,
+							required: false
 						},
 						{
-							label: t("block_class"),
-							name: "block_class",
-							widget: "string",
-							required: false,
-						},
-					],
+							label: t('block_class'),
+							name: 'block_class',
+							widget: 'string',
+							required: false
+						}
+					]
 				},
 
 				{
-					name: "prices",
-					label: t("prices"),
-					widget: "list",
+					name: 'prices',
+					label: t('prices'),
+					widget: 'list',
 
 					collapsed: true,
 					fields: [
 						{
-							name: "title",
-							label: t("title"),
-							widget: "string",
-							require: false,
+							name: 'title',
+							label: t('title'),
+							widget: 'string',
+							require: false
 						},
 						{
-							name: "intro",
-							label: t("intro"),
-							widget: "text",
-							require: false,
+							name: 'intro',
+							label: t('intro'),
+							widget: 'text',
+							require: false
 						},
 						{
-							name: "price",
-							label: t("price"),
-							widget: "string",
-							required: true,
+							name: 'price',
+							label: t('price'),
+							widget: 'string',
+							required: true
 						},
 						{
-							name: "price_suffix",
-							label: t("price_suffix"),
-							widget: "string",
-							required: false,
+							name: 'price_suffix',
+							label: t('price_suffix'),
+							widget: 'string',
+							required: false
 						},
 						{
-							name: "surface",
-							label: t("surface"),
+							name: 'surface',
+							label: t('surface'),
 							multiple: false,
-							widget: "relation",
-							collection: "config",
-							file: "style",
-							search_fields: ["surface.*.name"],
-							display_fields: ["surface.*.name"],
-							value_field: "surface.*.class",
+							widget: 'relation',
+							collection: 'config',
+							file: 'style',
+							search_fields: ['surface.*.name'],
+							display_fields: ['surface.*.name'],
+							value_field: 'surface.*.class',
 							options_length: 50,
-							required: false,
+							required: false
 						},
 						buttons,
 						{
-							name: "features",
-							label: t("features"),
-							widget: "list",
+							name: 'features',
+							label: t('features'),
+							widget: 'list',
 							collapsed: true,
 							fields: [
 								{
-									name: "label",
-									label: t("label"),
-									widget: "string",
-									required: true,
+									name: 'label',
+									label: t('label'),
+									widget: 'string',
+									required: true
 								},
 								{
-									name: "value",
-									label: t("value"),
-									widget: "text",
-									required: false,
+									name: 'value',
+									label: t('value'),
+									widget: 'text',
+									required: false
 								},
 								{
-									name: "icon_class",
-									label: t("icon_class"),
-									widget: "text",
-									required: false,
+									name: 'icon_class',
+									label: t('icon_class'),
+									widget: 'text',
+									required: false
 								},
 								{
-									name: "icon",
-									label: t("icon"),
-									widget: "relation",
-									collection: "config",
+									name: 'icon',
+									label: t('icon'),
+									widget: 'relation',
+									collection: 'config',
 									required: false,
-									file: "style",
-									search_fields: ["icons.*.name"],
-									display_fields: ["icons.*.name"],
+									file: 'style',
+									search_fields: ['icons.*.name'],
+									display_fields: ['icons.*.name'],
 									options_length: 50,
-									value_field: "icons.*.icon",
-								},
-							],
-						},
-					],
-				},
-			],
-		},
-	],
-};
+									value_field: 'icons.*.icon'
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	]
+}

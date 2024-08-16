@@ -1,3 +1,26 @@
+export function slugify(str: string): string {
+	if (!str || str === '') return ''
+
+	let result = str.replace(/^\s+|\s+$/g, '')
+	result = result.toLowerCase()
+
+	const from =
+		'ÁÄÂÀÃÅČÇĆĎÉĚËÈÊẼĔȆÍÌÎÏŇÑÓÖÒÔÕØŘŔŠŤÚŮÜÙÛÝŸŽáäâàãåčçćďéěëèêẽĕȇíìîïňñóöòôõøðřŕšťúůüùûýÿžþÞĐđßÆa·/_,:;'
+	const to =
+		'AAAAAACCCDEEEEEEEEIIIINNOOOOOORRSTUUUUUYYZaaaaaacccdeeeeeeeeiiiinnooooooorrstuuuuuyyzbBDdBAa------'
+
+	for (let i = 0, l = from.length; i < l; i++) {
+		result = result.replace(new RegExp(from.charAt(i), 'g'), to.charAt(i))
+	}
+
+	result = result
+		.replace(/[^a-z0-9 -]/g, '') // Remove invalid chars
+		.replace(/\s+/g, '-') // Collapse whitespace and replace by -
+		.replace(/-+/g, '-') // Collapse dashes
+
+	return result
+}
+
 export function getArchiveNav(
 	count: number,
 	index: number,

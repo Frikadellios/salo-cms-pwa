@@ -19,12 +19,16 @@ export const t = (field: string): string => {
 		fr: fr
 	}
 
-	if (translations[lang]?.[field]) {
+	// biome-ignore lint/complexity/useOptionalChain: <explanation>
+	if (translations[lang] && translations[lang][field]) {
 		return translations[lang][field]
 	}
 
-	if (translations.en?.[field]) {
-		return translations.en[field]
+	// biome-ignore lint/complexity/useLiteralKeys: <explanation>
+	// biome-ignore lint/complexity/useOptionalChain: <explanation>
+	if (translations['en'] && translations['en'][field]) {
+		// biome-ignore lint/complexity/useLiteralKeys: <explanation>
+		return translations['en'][field]
 	}
 
 	return field

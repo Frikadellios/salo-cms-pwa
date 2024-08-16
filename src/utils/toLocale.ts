@@ -18,11 +18,13 @@ if (lang === 'en') langCode = 'en-US'
 if (lang.length === 5) langCode = lang
 
 export function formatTime(time: string): string {
-	const startDate = new Date()
+	// biome-ignore lint/style/useConst: <explanation>
+	let startDate = new Date()
 	const offset = startDate.getTimezoneOffset()
 	const timeArr = time.split(':')
 	const BaseTime = `${offset / 60 + Number.parseInt(timeArr[0], 10) / 1}:${timeArr[1]}`
-	const newTime = new Date(`1970-01-01T${BaseTime}Z`).toLocaleTimeString(langCode, {
+	// biome-ignore lint/style/useConst: <explanation>
+	let newTime = new Date(`1970-01-01T${BaseTime}Z`).toLocaleTimeString(langCode, {
 		hour: 'numeric',
 		minute: 'numeric'
 	})

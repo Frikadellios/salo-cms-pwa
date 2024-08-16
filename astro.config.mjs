@@ -1,10 +1,11 @@
+import mdx from '@astrojs/mdx'
 import react from '@astrojs/react'
 import tailwindcss from '@tailwindcss/vite'
 import { defineConfig } from 'astro/config'
 import rehypeExternalLinks from 'rehype-external-links'
 import AutoImport from 'unplugin-auto-import/astro'
 import { SITE } from './src/site.config.ts'
-import { remarkReadingTime } from './src/utils/readTime'
+import { remarkReadingTime } from './src/utils/readTime.ts'
 
 // https://astro.build/config
 export default defineConfig({
@@ -30,7 +31,8 @@ export default defineConfig({
 			dirs: ['./src/utils/*.ts', './src/hooks'],
 			dts: './src/auto-imports.d.ts'
 		}),
-		react()
+		react(),
+		mdx()
 	],
 	markdown: {
 		rehypePlugins: [
